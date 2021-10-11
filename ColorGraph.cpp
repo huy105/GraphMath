@@ -98,8 +98,6 @@ void colorGraph(int n, Graph graph, int colorTarget[]) {
 }
 
 
-
-
 int main() {
 
     int n = 7;                     // n là số đỉnh
