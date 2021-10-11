@@ -46,7 +46,7 @@ void colorGraph(int n, Graph graph, int colorTarget[]) {
         }
     }                                             // BLOCK 1//  
 
-    bool visitedVer[7] = {false};                 // Array to check if we visited that vertex
+    bool visitedVer[n] = {false};                 // Array to check if we visited that vertex
 
     vector<int> orderList;                                      // OrderList is vector of vertex using greedy algorithm 
     orderList.push_back(indexStart);                            // Push vertex first to order
@@ -71,8 +71,6 @@ void colorGraph(int n, Graph graph, int colorTarget[]) {
     } while (orderList.size() != n);                            // Till orderList size == n it stop
 
     // Now we get an order vector of vertex for coloring (orderList)
-
-    int colorTarget[n];                     // Make an array of color for each vertex
 
     for (int i = 0; i < n; i++) {           // Assign each vertex to maximum color
         colorTarget[i] = maxDeg;
@@ -115,6 +113,26 @@ int main() {
     int colorVertex[n];
 
     colorGraph(n, G, colorVertex);
+
+    // Printing dot language
+
+    string colorDot[4] = {"red", "green", "blue", "yellow"};                // in this graph 4 is maximum degree
+
+    cout<<"graph tree {"<<endl;
+    for (int i = 0; i < n; i++) {
+        cout << i << " [fillcolor=" << colorDot[colorVertex[i]] << ", style=filled];" << endl;
+    }
+    
+    cout << "0 -- 5" << endl;
+    cout << "0 -- 1" << endl;
+    cout << "4 -- 3" << endl;
+    cout << "6 -- 4" << endl;
+    cout << "5 -- 4" << endl;
+    cout << "0 -- 2" << endl;
+    cout << "0 -- 6" << endl;
+    cout << "5 -- 3" << endl;
+    cout<<"}"<<endl;
+
 
     return 0;
 }
