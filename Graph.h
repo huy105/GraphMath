@@ -12,11 +12,13 @@ class Graph{
         int sodinh;
         int socanh;
         vi *danhsachke;
+        bool *visited;
     public:
         Graph(int V){
             sodinh = V;
             socanh = 0;
             danhsachke = new vi [sodinh];
+            visited = new bool [sodinh];
         }
         Graph (istream &in){
             int v, w;
@@ -35,7 +37,7 @@ class Graph{
             danhsachke[w].push_back(v);
         }
 
-        vi getAdj(int v){
+        vi getAdj(int v) const {
             return danhsachke[v];               // trả ra danh sách kề tại mỗi đỉnh v
         }
         int getV(){
@@ -44,7 +46,7 @@ class Graph{
         int getE(){
             return socanh;
         }
-        int getDeg(int v) {                     // Tính số đỉnh nút v
+        int getDeg(int v) const {                     // Tính số đỉnh nút v
             vi kev = getAdj(v);
     
             return kev.size();
