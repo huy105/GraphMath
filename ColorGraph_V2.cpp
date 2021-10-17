@@ -19,9 +19,6 @@ void colorGraph(int n, vector<int> &listVertex, int *colorTarget, const Graph &g
 
     int indexStart = 0;                   // IndexStart is node where algorithm start, its = k - 1 (where k is max degree)
 
-    cout << "oke" <<endl;
-    
-
     if (deg[0] > deg[1]){                        // BLOCK 1//  to get second biggest degree
         maxDeg = deg[0];                         
         secMaxDeg = deg[1];
@@ -175,11 +172,15 @@ int main() {
     string colorList[] = {"red", "green", "blue", "yellow","purple", "aqua", "aquamarine3", "green4", "gold2", "bisque", "cadetblue1", "darkred"};
 
     cout<<"graph tree {"<<endl;
-    for (int i = 0; i < vertex; i++) {
-        cout << i << " [fillcolor=" << colorList[colorVertex[i]] << ", style=filled];" << endl;
+    for (int i = 0; i < edge; i++) {
         cout << firstArr[i] << " -- " << secArr[i] << endl;
     }
+    for (int i = 0; i < vertex; i++)
+        cout << i << " [fillcolor=" << colorList[colorVertex[i]] << ", style=filled];" << endl;
     cout<<"}"<<endl;
+
+    system("pause");
+    return 0;
 
     return 0;
 }
