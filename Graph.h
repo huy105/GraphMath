@@ -51,7 +51,16 @@ class Graph{
     
             return kev.size();
         }
+        void explore(int v) {
+            vi danhsachke = getAdj(v);
 
-
+            visited[v] = true;
+            cout << v << " ";
+            for (int i = 0; i < danhsachke.size(); i++) {
+                if (visited[danhsachke[i]] == false) {
+                    explore(danhsachke[i]);
+                }
+            }
+        }
 };
 #endif
